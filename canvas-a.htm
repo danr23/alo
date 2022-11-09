@@ -1,0 +1,191 @@
+<html>
+<head>
+
+<meta charset="utf-8">
+
+</head>
+
+
+
+
+<body style="margin: 0" bgcolor="#f0e1ff">
+
+
+<canvas id="canvas" style="display: block;">
+</canvas>
+
+<script>
+let r = prompt('Введите сколько красного');
+let g = prompt('Введите сколько зелёного');
+let b = prompt('Введите сколько синего');
+let canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+
+x = 20;
+y = 20;
+c = 0;
+
+speedx = 5;
+speedy = 4;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+
+
+w = document.documentElement.scrollWidth-20;
+h = window.outerHeight-60;
+
+
+
+
+/*function mlsy() {
+setInterval(msy, 100);
+}
+function msy() {
+if(290 > y && y > 3 && 290 > x && x > 3)
+{
+y += speedy;
+}
+else if(3 < y && y <= 290 && 290 > x && x > 3)
+{
+y -= speedy;
+}
+}
+*/
+
+function mlsx() {
+setInterval(msx, 100);
+}
+function msx() {
+if(290 > x && x > 3 && c == 1)
+{
+x += speedx;
+}
+else if(c == 1)
+{
+x = 289;
+c = 0;
+}
+else if(3 < x && x <= 290 && c == 0)
+{
+x -= speedx;
+}
+else if (c == 0)
+{
+x = 5;
+c = 1;
+}
+
+}
+
+mlsx();
+
+
+function mlsy() {
+setInterval(msy, 10);
+}
+function msy() {
+if(290 > y && y > 3 && c == 1)
+{
+y -= speedy;
+}
+else if(c == 1)
+{
+y = 250;
+c = 0;
+}
+else if(3 < y && y <= 290 && c == 0)
+{
+y += speedy;
+}
+else if (c == 0)
+{
+y = 5;
+c = 1;
+}
+
+}
+
+
+mlsy();
+
+red = `${r}`;
+green = `${g}`;
+blue = `${b}`;
+color = `${r+g+b}`;
+function draw() {
+//ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = `#${color}`;
+ctx.fillRect(x, y, 25, 25);
+ctx.fill();
+}
+
+
+
+// function draw() {
+
+//    ctx.beginPath();
+//    ctx.arc(75,75,50,0,Math.PI*2,true); // Внешняя окружность
+//    ctx.moveTo(110,75);
+//    ctx.arc(75,75,35,0,Math.PI,false);  // рот (по часовой стрелке)
+//    ctx.moveTo(65,65);
+//    ctx.arc(60,65,5,0,Math.PI*2,true);  // Левый глаз
+//    ctx.moveTo(95,65);
+//    ctx.arc(90,65,5,0,Math.PI*2,true);  // Правый глаз
+//    ctx.stroke();
+    
+    //ctx.fillStyle = 'orange';
+    //ctx.fillRect(x, y, 20, 20);
+    //ctx.fill();
+//  }
+// #b4b4ff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setInterval(draw, 1 / 30);
+
+function twocolor() {
+setInterval(threecolor, 100);
+}
+function threecolor() {
+red++;
+
+green++;
+
+blue++;
+setInterval(fourcolor, 1000);
+}
+function fourcolor() {
+red--;
+
+green--;
+
+blue--;
+}
+twocolor();
+</script>
+
+
+
+
+
+</body>
+</html>
+

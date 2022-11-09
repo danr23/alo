@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta charset="UTF-8">
+
+</head>
+
+
+
+
+<body style="margin: 0">
+<form action="index.php">
+<input type="submit" value="Выйти">
+</form>
+
+
+<canvas id="canvas" style="display: block;">
+</canvas>
+
+<script>
+
+let canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+x = 100;
+y = 100;
+speed = 10;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+document.addEventListener('keydown', function(e) {
+console.log(e.keyCode)
+if(e.keyCode == 37)
+{
+x -= speed
+}
+
+else if(e.keyCode == 38)
+{
+y -= speed
+}
+
+else if(e.keyCode == 39)
+{
+x += speed
+}
+
+else if(e.keyCode == 40)
+{
+y += speed
+}
+});
+function draw() {
+//ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = 'black';
+ctx.fillRect(x, y, 15, 15);
+ctx.fill();
+}
+
+setInterval(draw, 1000 / 30);
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
